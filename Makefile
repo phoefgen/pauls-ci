@@ -3,16 +3,16 @@ SRC_DIR=.
 all: sloc test flakes lint clone
 
 sloc:
-	sloccount --duplicates --wide --details $(SRC_DIR) | fgrep -v .git > sloccount.sc || :
+	sloccount --duplicates --wide --details $(SRC_DIR) | fgrep -v .git || :
 
 test:
-	cd $(SRC_DIR) && nosetests --verbose --with-xunit --xunit-file=../xunit.xml --with-xcoverage --xcoverage-file=../coverage.xml || :
+	cd $(SRC_DIR) && nose2 --verbose  || :
 
 flakes:
-	find $(SRC_DIR) -name *.py|egrep -v '^./tests/'|xargs pyflakes  > pyflakes.log || :
+	find $(SRC_DIR) -name *.py|egrep -v '^./tests/'|xargs pyflakes || :
 
 lint:
-	find $(SRC_DIR) -name *.py|egrep -v '^./tests/' | xargs pylint --output-format=parseable --reports=y > pylint.log || :
+	find $(SRC_DIR) -name *.py|egrep -v '^./tests/' | xargs pylint --output-format=parseable --reports=y  || :
 
 clone:
 	clonedigger --cpd-output $(SRC_DIR) || :
