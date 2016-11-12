@@ -5,6 +5,7 @@ before_install:
   - sudo apt-get -qq update
   - sudo apt-get install -y sloccount
   - pip install -r test_requirements.txt
+  - sudo easy_install clonedigger
 # command to install dependencies
 install: "pip install -r requirements.txt"
 # command to run tests

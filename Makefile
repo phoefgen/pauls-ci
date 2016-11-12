@@ -1,6 +1,6 @@
 SRC_DIR=.
 
-all: clean sloc test flakes lint clone
+all: sloc test flakes lint clone
 
 sloc:
 	sloccount --duplicates --wide --details $(SRC_DIR) | fgrep -v .git > sloccount.sc || :
@@ -16,11 +16,3 @@ lint:
 
 clone:
 	clonedigger --cpd-output $(SRC_DIR) || :
-
-clean:
-	rm -f pyflakes.log
-	rm -f pylint.log
-	rm -f sloccount.sc
-	rm -f output.xml
-	rm -f coverage.xml
-	rm -f xunit.xml
