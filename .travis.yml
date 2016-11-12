@@ -2,7 +2,7 @@ language: python
 python:
   - "2.7"
 before_install:
-  - sudo apt-get --qq update
+  - sudo apt-get -qq update
   - sudo apt-get install -y sloccount
   - pip install -r test_requirements.txt
 # command to install dependencies
