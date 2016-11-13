@@ -9,4 +9,9 @@ before_install:
 # command to install dependencies
 install: "pip install -r requirements.txt"
 # command to run tests
-script: make all
+script:
+  - make sloc
+  - make flakes
+  - make clone
+  - make lint
+  - make test

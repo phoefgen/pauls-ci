@@ -12,7 +12,8 @@ flakes:
 
 lint:
 	figlet   'Linter'
-	find $(SRC_DIR) -name *.py|egrep -v '^./tests/' | xargs pylint --output-format=parseable --reports=y  || :
+	find $(SRC_DIR) -name *.py|egrep -v '^./tests/' | xargs pylint \
+																								--rcfile=./test/pylint.conf || :
 
 clone:
 	figlet   'clone digger'
