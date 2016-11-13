@@ -12,7 +12,8 @@ switch.
 
 This project is designed to eventually demonstrate the following concepts:
 
--- High availability deployment.
--- Continuous Delivery and Deployment concepts.
--- Multiple service redundancy.
--- Remediation and monitoring concepts and implementation.
+- High availability deployment.
+- Continuous Delivery and Deployment concepts.
+- Multiple service redundancy.
+- Remediation and monitoring concepts and implementation.
+- Demonstrate git-flow
