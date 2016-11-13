@@ -1,8 +1,13 @@
 version: '2'
+
 services:
-  application:
-    build: .
-    ports:
-     - "5000:5000"
+
+  test_host:
+    build:
+      context: .
+      dockerfile: Dockerfile
     volumes:
-     - ./app/:/home/root/undarked/app/
+      - ./app/:/home/root/pauls-ci/app
+    ports:
+      - "5000:5000"
+
