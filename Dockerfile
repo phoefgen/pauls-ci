@@ -1,4 +1,6 @@
 # Creates a container that turns lights on and off!
+# This container is used to provide a consistent and portable development
+# environment.
 
 FROM python
 ENV project_root /home/root/undarked
@@ -17,5 +19,8 @@ RUN \
     . $project_root/venv/bin/activate &&\
     pip install beautifulhue
 
-
-CMD ["/bin/bash", "-c", "source $project_root/venv/bin/activate && $project_root/app/start.py "]
+# Start the docker container with an active virtualenv - Protecting the OS
+# Python implementation from the project.
+WORKDIR $project_root
+CMD ["/bin/bash", "-c", \
+        "source $project_root/venv/bin/activate && $project_root/app/start.py "]

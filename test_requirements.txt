@@ -1,4 +1,3 @@
 pylint
 nose2
-noxescover
 pyflakes
