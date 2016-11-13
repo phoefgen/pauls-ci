@@ -1,49 +1,72 @@
-# pauls-ci
+# pauls-ci - DevOps in a Repo. 
 
 ### A reusable, portable Continous Integration enviornment.
-[![Build Status](https://travis-ci.org/phoefgen/pauls-ci.svg?branch=master)](https://travis-ci.org/phoefgen/pauls-ci)
+[![Build Status](https://travis-ci.org/phoefgen/pauls-ci.svg?branch=master)](https://travis-ci.org/phoefgen/pauls-ci) [Latest Build Logs](https://travis-ci.org/phoefgen/pauls-ci) 
 
+A platform for mindfully generating modern, scalable, supportable open 
+source code projects. 
 
-A platform for mindfully generating modern, scalable, supportable code 
-(probably in python). 
-
-The overall goal of this project is to enable a method that allows 
+The goal of this project is to enable a method that allows 
 developers to quickly start a project, and apply current best practise.
+
 The template will evolve with best practise over time, however the goal
-is to create a structure that only works with great code. 
+is to create a structure that _only_ works with high quality code 
+practise.  
 
 This project is designed to encourage the following concepts:
 
 #### Currently Supports:
 - Automated Testing and TDD.
 - Continuous, Automated code Integration.
-- PEP-8 enforcement and coding standards.
+- [PEP-8 coding standards.](https://www.python.org/dev/peps/pep-0008/) checks.
 - A portable and repeatable test, staging and deployment environment 
-through Docker.
-- Code management and versioning through git-flow.
-- Agile development practise through Kanban task tracking.
-- Scheduling local and testing deployment with docker-compose.
+through [Docker](https://www.docker.com)
+- Code management and versioning through [git-flow](http://nvie.com/posts/a-successful-git-branching-model/).
+- Agile development practise through [Kanban](https://www.atlassian.com/agile/kanban) task tracking.
+- Scheduling local and testing deployment with [docker-compose](https://docs.docker.com/compose/).
  
 #### On Roadmap:
-- Continuous deployment.
+- Continuous deployment via automated Blue/Green releases.
 - Multi-Vendor deployment through containers 
 (GoogleCloud/AWS/local/Custom)
-- Automated Blue/Green release management.
-- Multiple CI vendor integration (TravisCI supported, Jenkins support 
-planned)
-- Out of the box ELK Log monitoring (deployed to local ELK stack)
-- Out of the box Metrics (graphite)
-- Out of the box Monitoring (Sensu)
+- Multiple CI vendor integration (TravisCI supported, Jenkins support
+ planned)
+- Support for Scrum Agile workflows.
+- Supporting structures to aid local development:
+    - ELK Log monitoring (deployed to local containerized ELK stack)
+    - Metrics (Deployed to local container: Graphite)
+    - Monitoring (Deployed to local conatiner: Sensu)
+    - Automated transformation from local dev endpoints to production 
+    endpoints. 
 
+- Fail builds based on lowscore in pylint, excessive duplication in 
+code, etc.
 
 ## Using pauls-ci:
+
+### Requirements
+The following is required to support the testing environment.
+
+1. A working [docker installation](https://www.docker.com/products/overview#/install_the_platform), including docker-compose.
+ 
+Thats it! Docker installs all the other dependencies automatically. 
+
+### Workflow
+
+Build out your project in the `./app/` directory. Write corresponding 
+tests in the `./test/` directory.
+
+`docker-compose run` will start the docker container and (by Default) 
+run `start.py`
+
+TODO: Add configuration injection architecture. 
 
 ### Setup 
 
 1. Fork and clone the repo. 
-3. Configure TravisCI to monitor the deploy and master branches
+3. Configure [TravisCI](https://docs.travis-ci.com/user/getting-started/) to monitor the deploy and master branches
 
-### Building new stuff! (Feature development)
+### Feature development
 
 3. Use git-flow to create a feature branch: 
 `git flow feature start $feature_name`
@@ -60,7 +83,7 @@ planned)
 10. Check the automated testing in TravisCI is still passing. Rollback 
 or Roll Forward as appropriate to clear the TravisCI checks. 
 
-### Launching new stuff! (Releases!)
+### Releases
 
 1. Move all the new features into staging with 
 `git flow release start $ver`
@@ -72,7 +95,7 @@ both the develop and master branches. It also tags the commit to master
 with the release `$ver` name. This also triggers a final CI check on 
 Travis. 
 
-### Whoopsfix (HotFix releases)
+### HotFix releases
 
 1. On report of a new issue, create a minor break-fix change with:
 `git flow hotfix start $issue_id-$issue_description`
