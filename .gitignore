@@ -90,3 +90,6 @@ ENV/
 
 # testing files
 output.xml
+
+# pycharm settings
+.idea/
