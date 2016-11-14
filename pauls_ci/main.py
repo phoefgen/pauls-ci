@@ -13,6 +13,14 @@ TEMPLATES = [
         'path': '',
     },
     {
+        'name': '.travis.yml',
+        'path': '',
+    },
+    {
+        'name': '.gitignore',
+        'path': '',
+    },
+    {
         'name': 'docker-compose.yaml',
         'path': '',
     },
