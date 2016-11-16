@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-from pauls_ci.main import __main__
+from pauls_ci.__main__ import __main__
 
 
 if __name__ == '__main__':
