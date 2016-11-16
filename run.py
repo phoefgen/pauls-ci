@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
-from pauls_ci.main import main
+from pauls_ci.main import __main__
 
 
 if __name__ == '__main__':
-    main()
+    __main__()
