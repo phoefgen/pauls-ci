@@ -7,7 +7,7 @@ services:
       context: .
       dockerfile: Dockerfile
     volumes:
-      - ./{{project_name}}/:/home/root/pauls-ci/{{project_name}}
+      - ./app/:/home/root/pauls-ci/app
     ports:
       - "5000:5000"
 

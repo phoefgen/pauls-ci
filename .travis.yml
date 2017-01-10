@@ -7,7 +7,7 @@ before_install:
   - pip install -r test_requirements.txt
   - sudo easy_install clonedigger
 # command to install dependencies
-install: "pip install -r ./{{project_name}}/requirements.txt"
+install: "pip install -r ./app/requirements.txt"
 # command to run tests
 script:
   - make sloc
