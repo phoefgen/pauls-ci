@@ -20,11 +20,11 @@ RUN \
     chmod +x $project_root/venv/bin/*
 # Install requirements to venv
 RUN . $project_root/venv/bin/activate &&\
-    pip install -r $project_root/{{project_name}}/requirements.txt
+    pip install -r $project_root/app/requirements.txt
 
 
 # Start the docker container with an active virtualenv - Protecting the OS
 # Python implementation from the project.
 
 CMD ["/bin/bash", "-c", \
-        "source $project_root/venv/bin/activate && $project_root/{{project_name}}/start.py "]
+        "source $project_root/venv/bin/activate && $project_root/app/start.py "]
